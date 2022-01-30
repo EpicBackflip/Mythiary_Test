@@ -20,6 +20,11 @@ protected:
 
 public:	
 	virtual void Tick(float DeltaTime) override;
+
+	void GetAllCoins();
+	
+	UPROPERTY(VisibleDefaultsOnly)
+	TArray<AActor*> Actors;
 	
 	UPROPERTY(EditAnywhere,Category = "Spawnable")
 	TSubclassOf<ACoin> Coin;

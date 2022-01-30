@@ -2,7 +2,7 @@
 
 
 #include "CoinSpawner.h"
-
+#include "Kismet/GameplayStatics.h"
 #include "Math/UnrealMathUtility.h"
 
 ACoinSpawner::ACoinSpawner()
@@ -19,6 +19,12 @@ void ACoinSpawner::BeginPlay()
 void ACoinSpawner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	GetAllCoins();
+}
+
+void ACoinSpawner::GetAllCoins()
+{
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(),ACoin::StaticClass(),Actors);
 }
 
 void ACoinSpawner::SpawnCoin()

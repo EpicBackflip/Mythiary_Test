@@ -2,7 +2,6 @@
 
 #define PrintString(String) GEngine->AddOnScreenDebugMessage(-1,10.0f,FColor::White,String);
 #include "Coin.h"
-
 #include "Components/BoxComponent.h"
 #include "Mythiary_Test/Mythiary_TestCharacter.h"
 

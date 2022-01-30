@@ -13,7 +13,11 @@ class MYTHIARY_TEST_API UScoreWidget : public UUserWidget
 protected:
 		UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		class UTextBlock* CoinsPickedUp;
+		UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+		UTextBlock* CoinsLeft;
+	
 		virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
 public:
 	void UpdateScore();
+	void UpdateCoins();
 };
