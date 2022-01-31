@@ -19,7 +19,7 @@ void UScoreWidget::UpdateTexts()
 	AMythiary_TestCharacter* Character = Cast<AMythiary_TestCharacter>(GetWorld()->GetFirstPlayerController()->GetCharacter());
 	ACoinSpawner* CoinSpawner = Cast<ACoinSpawner>(UGameplayStatics::GetActorOfClass(GetWorld(),ACoinSpawner::StaticClass()));
 	CoinsPickedUp->SetText(FText::AsNumber(Character->CoinsPickedUpInt));
-	CoinsLeft->SetText(FText::AsNumber(CoinSpawner->Actors.Num()));
-	Distance->SetText(FText::AsNumber(CoinSpawner->NearestDistance));
+	CoinsLeft->SetText(FText::AsNumber(CoinSpawner->GetAllCoins()));
+	Distance->SetText(FText::AsNumber(CoinSpawner->FindNearestObjectsToPlayer(CoinSpawner->Actors)));
 } 
 

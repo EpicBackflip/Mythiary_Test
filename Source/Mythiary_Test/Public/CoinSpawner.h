@@ -21,9 +21,9 @@ protected:
 public:	
 	virtual void Tick(float DeltaTime) override;
 
-	void GetAllCoins();
-
-    float NearestDistance;
+	int  GetAllCoins();
+	
+	float  FindNearestObjectsToPlayer(TArray<AActor*> Objects);
 	
 	UPROPERTY(VisibleDefaultsOnly)
 	TArray<AActor*> Actors;
@@ -33,5 +33,5 @@ public:
 	
 private:
 	void SpawnCoin();
-	void FindNearestObjectsToPlayer(TArray<AActor*> Objects);
+	float NearestDistance;
 };

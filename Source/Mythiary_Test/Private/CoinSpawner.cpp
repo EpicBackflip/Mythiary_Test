@@ -23,16 +23,15 @@ void ACoinSpawner::BeginPlay()
 void ACoinSpawner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	GetAllCoins();
-	FindNearestObjectsToPlayer(Actors);
 }
 
-void ACoinSpawner::GetAllCoins()
+int  ACoinSpawner::GetAllCoins()
 {
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(),ACoin::StaticClass(),Actors);
+	return Actors.Num();
 }
 
-void ACoinSpawner::FindNearestObjectsToPlayer(TArray<AActor*> Objects)
+float  ACoinSpawner::FindNearestObjectsToPlayer(TArray<AActor*> Objects)
 {
 	AMythiary_TestCharacter* Character = Cast<AMythiary_TestCharacter>(GetWorld()->GetFirstPlayerController()->GetCharacter());
 	FVector PlayerLocation = Character->GetActorLocation();
@@ -47,6 +46,7 @@ void ACoinSpawner::FindNearestObjectsToPlayer(TArray<AActor*> Objects)
 			NearestDistance = Distance;
 		}
 	}
+	return NearestDistance;
 }
 
 void ACoinSpawner::SpawnCoin()
