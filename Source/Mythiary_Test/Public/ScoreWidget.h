@@ -15,9 +15,10 @@ protected:
 		class UTextBlock* CoinsPickedUp;
 		UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 		UTextBlock* CoinsLeft;
+		UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+		UTextBlock* Distance;	
 	
 		virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
 public:
-	void UpdateScore();
-	void UpdateCoins();
+	void UpdateTexts();
 };

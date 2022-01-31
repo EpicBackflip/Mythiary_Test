@@ -11,18 +11,15 @@
 void UScoreWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 {
 	Super::NativeTick(MyGeometry, InDeltaTime);
-	UpdateScore();
-	UpdateCoins();
+	UpdateTexts();
 }
 
-void UScoreWidget::UpdateScore()
+void UScoreWidget::UpdateTexts()
 {
 	AMythiary_TestCharacter* Character = Cast<AMythiary_TestCharacter>(GetWorld()->GetFirstPlayerController()->GetCharacter());
-	CoinsPickedUp->SetText(FText::AsNumber(Character->CoinsPickedUpInt));
-}
-
-void UScoreWidget::UpdateCoins()
-{
 	ACoinSpawner* CoinSpawner = Cast<ACoinSpawner>(UGameplayStatics::GetActorOfClass(GetWorld(),ACoinSpawner::StaticClass()));
+	CoinsPickedUp->SetText(FText::AsNumber(Character->CoinsPickedUpInt));
 	CoinsLeft->SetText(FText::AsNumber(CoinSpawner->Actors.Num()));
-}
+	Distance->SetText(FText::AsNumber(CoinSpawner->NearestDistance));
+} 
+
