@@ -10,7 +10,7 @@ UCLASS(config=Game)
 class AMythiary_TestCharacter : public ACharacter
 {
 	GENERATED_BODY()
-
+	
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
@@ -28,6 +28,10 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+	
+    /**Integer to track amount of coins picked up*/
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category= Pickups)
+	int CoinsPickedUpInt;
 
 protected:
 

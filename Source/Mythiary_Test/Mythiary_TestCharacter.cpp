@@ -20,7 +20,10 @@ AMythiary_TestCharacter::AMythiary_TestCharacter()
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
-
+	
+    // set amount of coins picked up to 0
+	CoinsPickedUpInt = 0;
+	
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
